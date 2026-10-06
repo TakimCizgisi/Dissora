@@ -1,0 +1,22 @@
+{
+    "botName": null,
+    "status": "online",
+    "activity": {
+        "type": "watching",
+        "name": "Dissora",
+        "url": null,
+        "state": null
+    },
+    "intents": ["Guilds", "GuildMessages"],
+    "commands": {
+        "register": true,
+        "pruneStale": true,
+        "scope": "auto"
+    },
+    "logging": {
+        "level": "info",
+        "timestamps": false
+    },
+    "owners": [],
+    "locale": "tr"
+}

@@ -1,0 +1,21 @@
+{
+    "name": "Ornek",
+    "version": "1.0.0",
+    "description": "Ornek Dissora modulu",
+    "author": "",
+    "license": "MIT",
+    "main": "index.ts",
+    "enabled": true,
+    "requires": [],
+    "commands": {
+        "enabled": true
+    },
+    "events": {
+        "enabled": true,
+        "files": [{ "event": "ready", "file": "Event/ready.ts" }]
+    },
+    "always": {
+        "enabled": true,
+        "tasks": [{ "file": "Always/ticker.ts", "interval": 300000 }]
+    }
+}

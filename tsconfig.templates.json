@@ -1,0 +1,13 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "./tsconfig.base.json",
+    "compilerOptions": {
+        "noEmit": true,
+        "baseUrl": ".",
+        "paths": {
+            "dissora": ["./src/index.ts"]
+        }
+    },
+    "include": ["src/templates/ts/**/*.ts"],
+    "exclude": ["node_modules"]
+}

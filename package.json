@@ -1,0 +1,68 @@
+{
+    "name": "dissora",
+    "version": "2.0.0",
+    "description": "Dissora - typed, modular Discord bot framework and module manager",
+    "keywords": [
+        "discord",
+        "discord.js",
+        "bot",
+        "framework",
+        "modular",
+        "modules",
+        "typescript",
+        "dissora"
+    ],
+    "license": "MIT",
+    "type": "commonjs",
+    "main": "./dist/cjs/index.js",
+    "module": "./dist/esm/index.js",
+    "types": "./dist/types/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/types/index.d.ts",
+            "import": "./dist/esm/index.js",
+            "require": "./dist/cjs/index.js",
+            "default": "./dist/cjs/index.js"
+        },
+        "./package.json": "./package.json"
+    },
+    "bin": {
+        "dissora": "bin/dissora.js"
+    },
+    "files": [
+        "bin",
+        "dist",
+        "src/templates",
+        "LICENSE",
+        "README.md"
+    ],
+    "engines": {
+        "node": ">=20.0.0"
+    },
+    "scripts": {
+        "clean": "node scripts/clean.mjs",
+        "version:sync": "node scripts/sync-version.mjs",
+        "build": "npm run clean && npm run version:sync && tsc -p tsconfig.build.cjs.json && tsc -p tsconfig.build.esm.json && tsc -p tsconfig.build.types.json && node scripts/postbuild.mjs",
+        "typecheck": "tsc -p tsconfig.json && tsc -p tsconfig.templates.json",
+        "lint": "biome check .",
+        "lint:fix": "biome check --write .",
+        "format": "biome format --write .",
+        "test": "vitest run",
+        "test:watch": "vitest",
+        "dev": "tsx watch src/bin/dissora.ts",
+        "link": "node scripts/link.mjs",
+        "release": "npm run lint && npm run typecheck && npm run build && npm run test",
+        "prepack": "npm run release",
+        "prepublishOnly": "npm run release"
+    },
+    "dependencies": {
+        "discord.js": "^14.27.0"
+    },
+    "devDependencies": {
+        "@biomejs/biome": "^2.5.14",
+        "@types/node": "^24.19.0",
+        "tsx": "^4.23.15",
+        "typescript": "^5.9.3",
+        "vitest": "^5.0.2"
+    }
+}
